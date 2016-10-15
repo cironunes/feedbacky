@@ -1,3 +1,35 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout class="app-layout">
+  <md-sidenav #sidenav mode="side">
+    Sidenav
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+    Feedbacky
+  </md-toolbar>
+
+  <div class="app-card-container">
+    <md-card class="app-card" *ngFor="let feedback of feedbacks; let i = index">
+      <md-card-title-group>
+        <md-card-title>
+          <p>{{ feedback.message }}</p>
+        </md-card-title>
+
+        <md-card-subtitle>
+          <fy-rating [rating]="feedback.rating"></fy-rating>
+        </md-card-subtitle>
+
+        <img md-card-sm-image src="https://randomuser.me/api/portraits/men/{{ i }}.jpg">
+      </md-card-title-group>
+
+      <md-card-content>
+        <p>
+          <strong>Questions:</strong> {{ feedback.questions }}
+        </p>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-sidenav-layout>

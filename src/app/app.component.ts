@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Feedback, FeedbackService } from './feedback';
 
 @Component({
-  selector: 'app-root',
+  selector: 'fy-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [FeedbackService]
 })
-export class AppComponent {
-  title = 'app works!';
+export class AppComponent implements OnInit {
+  feedbacks: Feedback[];
+
+  constructor(private feedbackService: FeedbackService) {}
+
+  ngOnInit() {
+    this.feedbackService.getFeedbacks()
+      .subscribe(feedbacks => this.feedbacks = feedbacks);
+  }
 }
