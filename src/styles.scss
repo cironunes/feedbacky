@@ -7,3 +7,28 @@ body {
   height: 100%;
 }
 
+.app-card-container {
+  display: flex;
+  padding: 10px;
+}
+
+.app-card {
+  margin: 10px;
+}
+
+.app-icon-button {
+  box-shadow: none;
+  user-select: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: normal;
+  height: auto;
+  line-height: inherit;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}

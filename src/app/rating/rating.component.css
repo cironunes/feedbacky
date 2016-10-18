@@ -1,4 +1,6 @@
 ul {
+  display: inline-block;
+  vertical-align: middle;
   list-style: none;
   margin: 0;
   padding: 0;

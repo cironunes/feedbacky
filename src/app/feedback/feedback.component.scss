@@ -1,0 +1,20 @@
+@import '~@angular/material/core/theming/prebuilt/indigo-pink';
+
+.feedback-control {
+  margin-bottom: 20px;
+}
+
+.feedback-input {
+  width: 100%;
+}
+
+.feedback-add-button {
+  background-color: md-color($accent);
+  color: #fff;
+  padding: 15px;
+  border-radius: 200px;
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  z-index: 1;
+}

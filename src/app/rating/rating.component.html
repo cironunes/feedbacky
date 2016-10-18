@@ -1,5 +1,9 @@
 <ul>
-  <li *ngFor="let i of [1,2,3,4,5]" [ngClass]="{highlight: i <= rating}">
+  <li
+    *ngFor="let i of [1,2,3,4,5]"
+    [ngClass]="{highlight: i <= rating}"
+    (click)="rate(i)"
+  >
     <md-icon>grade</md-icon>
   </li>
 </ul>

@@ -1,0 +1,69 @@
+<button class="app-icon-button feedback-add-button" (click)="showForm = !showForm">
+  <i class="material-icons">add</i>
+</button>
+
+<form novalidate [formGroup]="form" #f (submit)="addFeedback()" *ngIf="showForm">
+  <md-card>
+    <md-card-title>
+      Feedback form
+    </md-card-title>
+    <md-card-content>
+      <div class="feedback-control flex">
+        Rating: 
+        <fy-rating
+          [rating]="rating"
+          (onRatingUpdate)="updateRate($event)"
+        ></fy-rating>
+      </div>
+
+      <div class="feedback-control flex">
+        <md-input
+          class="feedback-input"
+          placeholder="Message"
+          formControlName="message"
+        ></md-input>
+      </div>
+
+      <div class="feedback-control flex">
+        <md-input
+          class="feedback-input"
+          placeholder="Questions"
+          formControlName="questions"
+        ></md-input>
+      </div>
+    </md-card-content>
+
+    <button
+      md-raised-button
+      type="submit"
+    >SUBMIT FEEDBACK</button>
+  </md-card>
+</form>
+
+<div class="app-card-container">
+  <md-card class="app-card" *ngFor="let feedback of feedbacks; let i = index">
+    <md-card-title-group>
+      <md-card-title>
+        <p>{{ feedback.message }}</p>
+      </md-card-title>
+
+      <md-card-subtitle>
+        <fy-rating
+          [rating]="feedback.rating"
+        ></fy-rating>
+      </md-card-subtitle>
+
+      <img md-card-sm-image src="https://randomuser.me/api/portraits/men/{{ i }}.jpg">
+    </md-card-title-group>
+
+    <md-card-content>
+      <p>
+        <strong>Questions:</strong> {{ feedback.questions }}
+      </p>
+
+      <p>
+        <strong>Answer: </strong> Yes!
+      </p>
+    </md-card-content>
+  </md-card>
+</div>
